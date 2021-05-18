@@ -26,10 +26,6 @@ function windowResized() {
 function draw() {
   background("#243626");
   for (let i = 0; i < dots.length; i++) {
-    noStroke();
-    fill("#27b334");
-    ellipse(dots[i].x, dots[i].y, dots[i].size);
-
     if (dots[i].x <= 0 || dots[i].x >= windowWidth) dots[i].xSpeed *= -1;
     if (dots[i].y <= 0 || dots[i].y >= windowHeight) dots[i].ySpeed *= -1;
     dots[i].x += dots[i].xSpeed;
@@ -42,6 +38,10 @@ function draw() {
         line(dots[i].x, dots[i].y, element.x, element.y);
       }
     });
+    
+    noStroke();
+    fill("#27b334");
+    ellipse(dots[i].x, dots[i].y, dots[i].size);
   }
 }
 //background code end
